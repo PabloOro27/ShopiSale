@@ -7,6 +7,7 @@ import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SingIn from '../SingIn'
 import Navbar from '../../components/Navbar'
+import Layout from '../../components/Layout'
 import '../../../src/App.css' //estilos globales
 
 // funcion de las rutas
@@ -25,8 +26,10 @@ const AppRoutes = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <AppRoutes />
+      <Layout>
+        <Navbar />
+        <AppRoutes />
+      </Layout>
     </BrowserRouter>
   );
 };

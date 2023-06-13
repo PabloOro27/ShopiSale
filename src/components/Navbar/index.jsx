@@ -5,7 +5,7 @@ const Navbar = () => {
   const activeStyle = "underline underline-offset-4 text-green-600";
 
   return (
-   <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-lg font-light">
+   <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-lg font-light top-0">
       {/* lado ixquierdo */}
       <ul className="flex items-center gap-4">
          {/* logo principal  */}

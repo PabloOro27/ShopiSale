@@ -1,10 +1,12 @@
 import React from 'react';
+import Card from '../../components/Card';
 
 const Home = () => {
     return (
-    <div className='bg-red-100'>
+      <>
         <h1>Home</h1>
-    </div>
+        <Card />
+      </>
     );
 };
 
