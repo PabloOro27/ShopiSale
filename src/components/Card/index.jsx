@@ -1,6 +1,10 @@
-import React from 'react';
+import {React,  useContext} from 'react';
+import { CartContext } from '../../context';
 import { BsFillCartPlusFill } from 'react-icons/bs';
+
 const Card = (props) => {
+  const context = useContext(CartContext);
+
     return (
       <div className="bg-white cursor-pointer w-60 h-68 rounded-lg box-content">
         <figure className="relative mb-2 w-full h-4/5">
@@ -13,7 +17,10 @@ const Card = (props) => {
             alt= {props.data.title}
           />
           {/* <div className='absolute top-0 right-0'></div> */}
-          <BsFillCartPlusFill className="absolute top-0 right-0 bg-white w-8 h-8 rounded-full p-1 m-2" />
+          <BsFillCartPlusFill 
+            className="absolute top-0 right-0 bg-white w-8 h-8 rounded-full p-1 m-2" 
+            onClick={() => context.setCount(context.count + 1)}
+          />
         </figure>
         <p className="flex justify-between items-center p-1">
           <span className="text-md font-light">{props.data.title}</span>
