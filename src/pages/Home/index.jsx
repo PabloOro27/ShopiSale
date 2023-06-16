@@ -1,5 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import Card from '../../components/Card';
+import ProductDetail from '../../components/ProductDetail';
 
 const Home = () => {
   const [items, setItems] = useState(null);
@@ -17,6 +18,7 @@ const Home = () => {
            return <Card key ={item.id} data = {item}/> // data es la prop que se le pasa al componente Card
           })
         }
+        <ProductDetail />
       </div>
     );
 };

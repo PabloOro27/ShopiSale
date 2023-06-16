@@ -9,7 +9,7 @@ const Navbar = () => {
   const activeStyle = "underline underline-offset-4 text-green-600";
 
   return (
-    <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-lg font-light top-0">
+    <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-lg font-light top-0 bg-white">
       {/* lado ixquierdo */}
       <ul className="flex items-center gap-4">
         {/* logo principal  */}
@@ -95,7 +95,7 @@ const Navbar = () => {
         </li>
         {/* carrito */}
         <li>
-          <BsCart4 className="text-2xl text-green-600" />
+          <BsCart4 className="text-2xl font-bold text-green-600" />
           {
             context.count > 0 &&(
             <span className="flex justify-center items-center font-semibold text-white absolute top-1 right-2 bg-green-500 w-6 h-6 rounded-full p-1 m-2">
