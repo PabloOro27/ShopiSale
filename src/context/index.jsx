@@ -10,8 +10,16 @@ export const CartContextProvider = ({children}) => {
     const openProductDetail = () => setProductDetailOpen(true); 
     const closeProductDetail = () => setProductDetailOpen(false);
     // mnostrar datos del Product Detail
-    const [productDetailShow, setProductDetailShow] = useState({});
-
+    const [productDetailShow, setProductDetailShow] = useState({
+        images: [],
+    });
+    // informacion del carrito de compras 
+    const [cartProducts, setCartProducts] = useState([]); //array de objetos [{}, {}]
+    // abrir y cerrar carrito de compras 
+    const [cartOpen, setCartOpen] = useState(false);
+    const openCart = () => setCartOpen(true);
+    const closeCart = () => setCartOpen(false);
+    
     return (
         <CartContext.Provider value={{
             count,
@@ -20,7 +28,12 @@ export const CartContextProvider = ({children}) => {
             openProductDetail,
             closeProductDetail,
             productDetailShow,
-            setProductDetailShow
+            setProductDetailShow, 
+            cartProducts,
+            setCartProducts,
+            cartOpen,
+            openCart,
+            closeCart,
         }}>
             {children}
         </CartContext.Provider>

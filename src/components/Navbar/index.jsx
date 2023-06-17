@@ -1,12 +1,22 @@
 import {React, useContext} from "react";
-import { CartContext } from "../../context";
-import { NavLink } from "react-router-dom";
+import { CartContext } from "../../context"; //context general de la app 
+import { NavLink } from "react-router-dom"; //para las rutas, objeto de ereact para dirigir a otra pagina
+// iconos de react-icons
 import { BsCart4 } from "react-icons/bs";
 
 const Navbar = () => {
    const context = useContext(CartContext);
 
+  // estilo cuando se active una pestaña
   const activeStyle = "underline underline-offset-4 text-green-600";
+  // funcion para abrir o cerrar el carrito
+  const openCloseCart = () => {
+    console.log(context.cartOpen);
+    if (context.cartOpen) { //si esta abierto lo cierra
+      context.closeCart();
+    }
+    else context.openCart(); //si esta cerrado lo abre
+  };
 
   return (
     <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-lg font-light top-0 bg-white">
@@ -94,14 +104,13 @@ const Navbar = () => {
           </NavLink>
         </li>
         {/* carrito */}
-        <li>
+        <li onClick={() => openCloseCart()}>
           <BsCart4 className="text-2xl font-bold text-green-600" />
-          {
-            context.count > 0 &&(
+          {context.count > 0 && (
             <span className="flex justify-center items-center font-semibold text-white absolute top-1 right-2 bg-green-500 w-6 h-6 rounded-full p-1 m-2">
               {context.count}
-            </span>)
-          }
+            </span>
+          )}
         </li>
       </ul>
     </nav>

@@ -9,6 +9,7 @@ import NotFound from '../NotFound'
 import SingIn from '../SingIn'
 import Navbar from '../../components/Navbar'
 import Layout from '../../components/Layout'
+import CartProducts from '../../components/CartProducts'
 import '../../../src/App.css' //estilos globales
 
 // funcion de las rutas
@@ -21,16 +22,17 @@ const AppRoutes = () => {
     { path: '/sing-in', element: <SingIn /> },
     { path: '*', element: <NotFound /> },
   ])
-  return routes
+  return routes //retorna las rutas
 }
 // funcion principal
 const App = () => {
   return (
-    <CartContextProvider>
-      <BrowserRouter>
-        <Layout>
-          <Navbar />
-          <AppRoutes />
+    <CartContextProvider> {/*context general de la app */}
+      <BrowserRouter> {/*para las rutas, objeto de ereact para dirigir a otra pagina */}
+        <Layout> {/*layout general de la app */}
+          <Navbar /> {/*navbar general de la app */}
+          <AppRoutes /> {/*rutas de la app */}
+          <CartProducts /> {/*carrito de la app */}
         </Layout>
       </BrowserRouter>
     </CartContextProvider>

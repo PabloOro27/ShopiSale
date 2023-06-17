@@ -6,11 +6,11 @@ import "./styles.css"; //estilos
 
 const ProductDetail = () => {
   const context = useContext(CartContext);
-  let productInfo = {}
-  productInfo = context.productDetailShow; //objeto con los datos de los productos
+  let productInfo = context.productDetailShow; //objeto con los datos de los productos
 
-  const addProduct = () => {
+  const addProduct = (product) => {
     context.setCount(context.count + 1);
+    context.setCartProducts([...context.cartProducts, product]);
     context.closeProductDetail();
   };
 
@@ -47,7 +47,7 @@ const ProductDetail = () => {
       <div className="flex items-end justify-center h-full w-full pb-3">
         <button 
           className=" bg-green-600 w-80 h-14 rounded-xl text-xl text-white cursor-pointer"
-          onClick={() => addProduct()}
+          onClick={() => addProduct(productInfo)}
         >
           AGREGAR
         </button>

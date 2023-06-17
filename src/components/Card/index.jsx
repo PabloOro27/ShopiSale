@@ -9,6 +9,11 @@ const Card = (props) => {
     context.setProductDetailShow(dataInfo);
     context.openProductDetail();
   };
+  //añadir al carrito de compras 
+  const addToCart = (productData) => {
+    context.setCount(context.count + 1)
+    context.setCartProducts([...context.cartProducts, productData])
+  }; 
 
     return (
       <div 
@@ -24,10 +29,10 @@ const Card = (props) => {
             src= {props.data.images[0]}
             alt= {props.data.title}
           />
-          {/* <div className='absolute top-0 right-0'></div> */}
+          {/* logo de carrito de compras */}
           <BsFillCartPlusFill 
             className="absolute top-0 right-0 bg-white w-8 h-8 rounded-full p-1 m-2" 
-            onClick={() => context.setCount(context.count + 1)}
+            onClick={() => addToCart(props.data)}  
           />
         </figure> 
         <p className="flex justify-between items-center p-1">
