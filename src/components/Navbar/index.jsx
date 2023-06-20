@@ -11,7 +11,6 @@ const Navbar = () => {
   const activeStyle = "underline underline-offset-4 text-green-600";
   // funcion para abrir o cerrar el carrito
   const openCloseCart = () => {
-    console.log(context.cartOpen);
     if (context.cartOpen) { //si esta abierto lo cierra
       context.closeCart();
     }
@@ -107,7 +106,7 @@ const Navbar = () => {
         <li onClick={() => openCloseCart()}>
           <BsCart4 className="text-2xl font-bold text-green-600" />
           {context.count > 0 && (
-            <span className="flex justify-center items-center font-semibold text-white absolute top-1 right-2 bg-green-500 w-6 h-6 rounded-full p-1 m-2">
+            <span className="animate-bounce flex justify-center items-center font-semibold text-white absolute top-1 right-2 bg-green-500 w-6 h-6 rounded-full p-1 m-2">
               {context.count}
             </span>
           )}
