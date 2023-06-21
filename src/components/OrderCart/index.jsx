@@ -5,6 +5,16 @@ const OrderCart = (props) => {
     const {
         id, title, image, price, handleDelete
     } = props;
+    // renderizar boron de eliminar o no
+    let renderIconDelete;
+    if (handleDelete){
+      renderIconDelete =
+        <IoTrashBinSharp 
+              className="cursor-pointer text-xl hover:text-red-700" 
+              onClick={() => handleDelete(props.id)}
+              />
+      
+    }
 
     return (
       <div className="flex justify-between items-center m-2">
@@ -16,10 +26,7 @@ const OrderCart = (props) => {
         </div>
         <div className='flex gap-2 items-center'>
           <p className='text-lg font-semibold'>Q{price}</p>
-          <IoTrashBinSharp 
-            className="cursor-pointer text-xl hover:text-red-700" 
-            onClick={() => handleDelete(props.id)}
-            />
+          {renderIconDelete}
         </div>
       </div>
     );
