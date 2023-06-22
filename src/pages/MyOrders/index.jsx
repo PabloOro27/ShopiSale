@@ -10,7 +10,7 @@ const MyOrders = () => {
       <div>
         <h1>My Orders</h1>
         {context.orders.map((order, index) => (
-          <Link key={index} to={`/my-orders/${order.id}`}>
+          <Link key={index} to={`/my-orders/${index}`}>
             <OrdersCart
               totalPrice={order.totalPrice}
               totalProducts={order.totalProducts}

@@ -15,13 +15,14 @@ import '../../../src/App.css' //estilos globales
 // funcion de las rutas
 const AppRoutes = () => {
     let routes = useRoutes([
-    { path: '/', element: <Home /> },
-    { path: '/my-account', element: <MyAccount /> },
-    { path: '/my-orders/last', element: <MyOrder /> },
-    { path: '/my-orders', element: <MyOrders /> },
-    { path: '/sing-in', element: <SingIn /> },
-    { path: '*', element: <NotFound /> },
-  ])
+      { path: "/", element: <Home /> },
+      { path: "/my-account", element: <MyAccount /> },
+      { path: "/my-orders", element: <MyOrders /> },
+      { path: "/my-orders/last", element: <MyOrder /> },
+      { path: "/my-orders/:id", element: <MyOrder /> }, //id es un parametro y los dos puntos significa que espera un valor
+      { path: "/sing-in", element: <SingIn /> },
+      { path: "*", element: <NotFound /> },
+    ]);
   return routes //retorna las rutas
 }
 // funcion principal

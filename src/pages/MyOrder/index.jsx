@@ -5,12 +5,30 @@ import OrderCart from '../../components/OrderCart'; // componente de cada produc
 
 const MyOrder = () => {
   const context = useContext(CartContext);
-  console.log(context.orders);
+  const currentPath = window.location.pathname; // obtener la ruta actual
+  let index = currentPath.substring(currentPath.lastIndexOf("/") + 1); // obtener el ultimo elemento de la ruta
+  let messageButton
+  console.log(index);
+  // comparacion de index
+  if (index === "last") {
+    index = context.orders?.length - 1;
+    messageButton = 
+      <button className= "bg-green-600 w-80 h-14 rounded-xl text-xl text-white cursor-pointer">
+        Confirmar
+      </button>
+  } else {
+    messageButton = (
+      <button className= "bg-slate-800 w-80 h-14 rounded-xl text-xl text-white cursor-pointer">
+        Regresar
+      </button>
+    );
+  }
+
     return (
       <div>
         My Order
         <div className="products-cart overflow-auto h-4/5">
-          {context.orders?.slice(-1)[0].products.map(
+          {context.orders?.[index]?.products.map(
             (
               product // slice(-1)[0] es para obtener el ultimo elemento del array
             ) => (
@@ -28,11 +46,7 @@ const MyOrder = () => {
           TOTAL = Q{context.orders?.slice(-1)[0].totalPrice}
         </p>
         <Link to="/my-orders">
-          <button
-            className=" bg-green-600 w-80 h-14 rounded-xl text-xl text-white cursor-pointer"
-          >
-            Pagar
-          </button>
+          {messageButton}
         </Link>
       </div>
     );
