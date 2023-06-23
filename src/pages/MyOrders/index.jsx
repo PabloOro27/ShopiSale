@@ -8,13 +8,13 @@ const MyOrders = () => {
 
     return (
       <div>
-        <h1>My Orders</h1>
+        <h1 className='text-center mb-6 font-extrabold text-2xl'>My Orders</h1>
         {context.orders.map((order, index) => (
           <Link key={index} to={`/my-orders/${index}`}>
             <OrdersCart
               totalPrice={order.totalPrice}
               totalProducts={order.totalProducts}
-              date={order.dateShop}
+              date={order.date}
             />
           </Link>
         ))}

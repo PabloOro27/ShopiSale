@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-export const CartContext = createContext();
+export const CartContext = createContext(); // se crea el contexto
 
+// proveedor de contexto
 export const CartContextProvider = ({children}) => {
     //contador de carrito de compras 
     const [count, setCount] = useState(0);
@@ -28,6 +29,17 @@ export const CartContextProvider = ({children}) => {
     // shoping cart order 
     const [orders, setOrders] = useState([]); //array de objetos [{}, {}]
 
+    // get products from API
+    const [items, setItems] = useState(null);
+    // recorrido de la API para obtener los productos y agregalor a la variable items
+    useEffect(() => {
+      fetch("https://api.escuelajs.co/api/v1/products")
+        .then((response) => response.json())
+        .then((data) => setItems(data));
+    }, []);
+
+    // ---------------------------------------------------------
+    // retorno de los valores del contexto
     return (
         <CartContext.Provider value={{
             count,
@@ -44,6 +56,8 @@ export const CartContextProvider = ({children}) => {
             closeCart,
             orders,
             setOrders,
+            items,
+            setItems,
         }}>
             {children}
         </CartContext.Provider>

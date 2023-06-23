@@ -8,7 +8,6 @@ const MyOrder = () => {
   const currentPath = window.location.pathname; // obtener la ruta actual
   let index = currentPath.substring(currentPath.lastIndexOf("/") + 1); // obtener el ultimo elemento de la ruta
   let messageButton
-  console.log(index);
   // comparacion de index
   if (index === "last") {
     index = context.orders?.length - 1;
@@ -43,7 +42,7 @@ const MyOrder = () => {
           )}
         </div>
         <p className="text-center text-xl font-medium text-green-500 p-1">
-          TOTAL = Q{context.orders?.slice(-1)[0].totalPrice}
+          TOTAL = Q{context.orders?.[index]?.totalPrice}
         </p>
         <Link to="/my-orders">
           {messageButton}
