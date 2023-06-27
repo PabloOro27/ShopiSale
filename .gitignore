@@ -41,3 +41,5 @@ playground-temp
 temp
 TODOs.md
 .eslintcache
+# Local Netlify folder
+.netlify
