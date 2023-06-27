@@ -37,6 +37,7 @@ const CartProducts = () => {
       context.setCartProducts([]); // vacia el carrito
       context.setCount(0); // reinicia el contador
       context.closeCart(); // cierra el carrito
+      context.setSearchByTitle("");
     }
   };
 
